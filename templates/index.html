@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iris Predict</title>
+</head>
+
+<body>
+    <form method="post" style=width:500px>
+        <fieldset style=float:left;width:200px;>
+            <legend>Predict Iris Species</legend>
+            <div>
+                {{ form.hidden_tag() }} {{ form.sepalLength.label }}
+                <br/> {{ form.sepalLength }}
+                <br/>
+                <br/> {{ form.sepalWidth.label }}
+                <br/> {{ form.sepalWidth }}
+                <br/>
+                <br/> {{ form.petalLength.label }}
+                <br/> {{ form.petalLength }}
+                <br/>
+                <br/> {{ form.petalWidth.label }}
+                <br/> {{ form.petalWidth }}
+                <br/>
+                <br/> {{ form.submit }}
+                <br/>
+                <br/>
+            </div>
+        </fieldset>
+        <fieldset style=float:left;width:200px;>
+            <legend>Results</legend>
+            {{ form.results }}
+            <br/>
+            <br/>            
+            <img src="static/images/{{ form.iris | default('iris_setosa.jpg') }}" alt="{{ form.iris }}" />
+            {{ form.iris }}
+        </fieldset>
+    </form>
+</body>
+</html>
